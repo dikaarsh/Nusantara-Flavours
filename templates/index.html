@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Nusantara Flavours</title>
+    <title>Selamat Datang di Nusantara Flavours</title>
 </head>
 <body>
     <h1>Selamat datang di Nusantara Flavours!</h1>
+
+    <h2>Daftar User</h2>
+    {% if users %}
+        <ul>
+            {% for user in users %}
+                <li>{{ user.nama }} ({{ user.email }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Belum ada data user.</p>
+    {% endif %}
+
 </body>
 </html>
