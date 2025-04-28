@@ -1,4 +1,5 @@
 from extensions import db
+<<<<<<< HEAD
 from models import User, Resep, Favorit, Pencarian
 from app import app
 
@@ -57,3 +58,34 @@ with app.app_context():
     db.session.commit()
 
 print("✅ Database berhasil diisi!")
+=======
+from app import app
+from models import User, Resep, Favorit, Pencarian
+
+with app.app_context():
+    db.create_all()
+
+    # Tambah user
+    user1 = User(nama="Ardika Arshal", email="ardika@example.com", password="password123")
+    user2 = User(nama="Ikhsan Nugraha", email="ikhsan@example.com", password="secure456")
+    user3 = User(nama="Okta Rizky", email="okta@example.com", password="mysecret789")
+    user4 = User(nama="Suharyadi Putra", email="suharyadi@example.com", password="pass4567")
+    
+    db.session.add_all([user1, user2, user3, user4])
+    db.session.commit()
+
+    # Tambah resep
+    resep1 = Resep(user_id=1, nama_resep="Rawon", kategori="Jawa Timur", nama_daerah="Surabaya", bahan="Daging sapi, kluwek, bawang merah, bawang putih", instruksi="Rebus daging, buat bumbu, campur dan masak", foto="rawon.jpg")
+    resep2 = Resep(user_id=1, nama_resep="Binte Biluhuta", kategori="Gorontalo", nama_daerah="Gorontalo", bahan="Jagung, udang, kelapa, daun kemangi", instruksi="Masak jagung, campur dengan kelapa dan seafood", foto="binte.jpg")
+    resep3 = Resep(user_id=2, nama_resep="Tinutuan", kategori="Sulawesi Utara", nama_daerah="Manado", bahan="Singkong, bayam, kangkung, jagung manis", instruksi="Rebus semua bahan hingga matang", foto="tinutuan.jpg")
+    resep4 = Resep(user_id=2, nama_resep="Ayam Taliwang", kategori="Nusa Tenggara Barat", nama_daerah="Lombok", bahan="Ayam kampung, sambal taliwang", instruksi="Bakar ayam dan olesi sambal", foto="taliwang.jpg")
+    resep5 = Resep(user_id=3, nama_resep="Nasi Liwet", kategori="Jawa Tengah", nama_daerah="Surakarta", bahan="Beras, santan, daun salam, serai", instruksi="Masak nasi dengan santan dan bumbu", foto="liwet.jpg")
+    resep6 = Resep(user_id=3, nama_resep="Rendang", kategori="Sumatera Barat", nama_daerah="Padang", bahan="Daging sapi, santan, rempah-rempah", instruksi="Masak perlahan hingga kering dan berminyak", foto="rendang.jpg")
+    resep7 = Resep(user_id=4, nama_resep="Gudeg", kategori="Jawa Tengah", nama_daerah="Yogyakarta", bahan="Nangka muda, santan, gula merah", instruksi="Masak nangka muda hingga matang", foto="gudeg.jpg")
+    resep8 = Resep(user_id=4, nama_resep="Lumpia Semarang", kategori="Jawa Tengah", nama_daerah="Semarang", bahan="Kulit lumpia, rebung, ayam, udang", instruksi="Tumis isi, bungkus, goreng hingga matang", foto="lumpia.jpg")
+    
+    db.session.add_all([resep1, resep2, resep3, resep4, resep5, resep6, resep7, resep8])
+    db.session.commit()
+
+    print("Database berhasil diisi data dummy!")
+>>>>>>> f7ab526 (Add seeder file untuk populate database)
