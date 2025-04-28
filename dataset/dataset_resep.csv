@@ -1,0 +1,9 @@
+resep_id,user_id,nama_resep,kategori,nama_daerah,bahan,instruksi,foto
+1,1,Rawon,Jawa Timur,Surabaya,"Daging sapi, kluwek, bawang merah, bawang putih","Rebus daging, buat bumbu, campur dan masak",rawon.jpg
+2,1,Binte Biluhuta,Gorontalo,Gorontalo,"Jagung, udang, kelapa, daun kemangi","Masak jagung, campur dengan kelapa dan seafood",binte.jpg
+3,2,Tinutuan,Sulawesi Utara,Manado,"Singkong, bayam, kangkung, jagung manis",Rebus semua bahan hingga matang,tinutuan.jpg
+4,2,Ayam Taliwang,Nusa Tenggara Barat,Lombok,"Ayam kampung, sambal taliwang",Bakar ayam dan olesi sambal,taliwang.jpg
+5,3,Nasi Liwet,Jawa Tengah,Surakarta,"Beras, santan, daun salam, serai",Masak nasi dengan santan dan bumbu,liwet.jpg
+6,3,Rendang,Sumatera Barat,Padang,"Daging sapi, santan, rempah-rempah",Masak perlahan hingga kering dan berminyak,rendang.jpg
+7,4,Gudeg,Jawa Tengah,Yogyakarta,"Nangka muda, santan, gula merah",Masak nangka muda hingga matang,gudeg.jpg
+8,4,Lumpia Semarang,Jawa Tengah,Semarang,"Kulit lumpia, rebung, ayam, udang","Tumis isi, bungkus, goreng hingga matang",lumpia.jpg

@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kategori Resep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 min-h-screen">
+    <main class="p-6">
+        <h1 class="text-3xl font-bold mb-4">Filter Resep Berdasarkan Provinsi</h1>
+        <select id="provinsiSelect" class="p-2 rounded border mb-4">
+            <option value="">-- Pilih Provinsi --</option>
+            <option value="Jawa Timur">Jawa Timur</option>
+            <option value="Jawa Tengah">Jawa Tengah</option>
+            <option value="Sumatera Barat">Sumatera Barat</option>
+            <option value="Sulawesi Utara">Sulawesi Utara</option>
+            <option value="Gorontalo">Gorontalo</option>
+            <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+        </select>
+        <div id="resultKategori" class="mt-4"></div>
+    </main>
+    <script>
+    document.getElementById('provinsiSelect').addEventListener('change', async function() {
+        const provinsi = this.value;
+        const response = await fetch(`/filter_kategori?provinsi=${encodeURIComponent(provinsi)}`);
+        const results = await response.json();
+        const resultArea = document.getElementById('resultKategori');
+        resultArea.innerHTML = '';
+        results.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'p-2 bg-white rounded shadow mb-2';
+            div.innerHTML = `<a href="/resep/${item.id}" class="text-lg font-bold hover:underline">${item.nama_resep}</a><br><span class="text-sm">${item.nama_daerah}</span>`;
+            resultArea.appendChild(div);
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tambah Resep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 min-h-screen flex justify-center items-center">
+    <form method="POST" enctype="multipart/form-data" class="bg-white p-8 rounded shadow w-96">
+        <h1 class="text-2xl font-bold mb-4">Tambah Resep</h1>
+        <input type="text" name="nama_resep" placeholder="Nama Resep" class="w-full p-2 border rounded mb-4" required>
+        <input type="text" name="kategori" placeholder="Kategori (Provinsi)" class="w-full p-2 border rounded mb-4" required>
+        <input type="text" name="nama_daerah" placeholder="Nama Daerah" class="w-full p-2 border rounded mb-4" required>
+        <textarea name="bahan" placeholder="Bahan" class="w-full p-2 border rounded mb-4" required></textarea>
+        <textarea name="instruksi" placeholder="Instruksi" class="w-full p-2 border rounded mb-4" required></textarea>
+        <input type="file" name="foto" class="w-full p-2 border rounded mb-4" accept="image/*" required>
+        <button type="submit" class="w-full bg-green-600 text-white p-2 rounded">Tambah</button>
+    </form>
+</body>
+</html>

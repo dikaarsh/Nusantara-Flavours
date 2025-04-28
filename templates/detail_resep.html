@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail_Resep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 min-h-screen">
+    
+<nav class="bg-green-700 p-4 text-white flex justify-between items-center">
+    <div class="font-bold">Nusantara Flavours</div>
+    <div class="flex space-x-4 items-center">
+        <a href="/" class="hover:underline">Beranda</a>
+        <a href="/kategori" class="hover:underline">Kategori</a>
+        <a href="/favorit" class="hover:underline">Favorit</a>
+        {% if current_user.is_authenticated %}
+        <span class="mr-2">Halo, {{ current_user.nama }}</span>
+        <a href="/logout" class="hover:underline">Logout</a>
+        {% else %}
+        <a href="/login" class="hover:underline">Login</a>
+        <a href="/register" class="hover:underline">Register</a>
+        {% endif %}
+        <input id="searchInput" type="text" placeholder="Cari Resep..." class="p-1 rounded text-black">
+    </div>
+</nav>
+
+    <main class="p-6">
+        <h1 class="text-3xl font-bold mb-4">Detail Resep</h1>
+        <div id="searchResults" class="mt-4"></div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        const resultArea = document.getElementById('searchResults');
+        if (searchInput && resultArea) {
+            searchInput.addEventListener('input', async function() {
+                const query = searchInput.value;
+                const response = await fetch(`/search?query=${encodeURIComponent(query)}`);
+                const results = await response.json();
+                resultArea.innerHTML = '';
+                results.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'p-2 bg-white rounded shadow mb-2';
+                    div.innerHTML = `<a href="/resep/${item.id}" class="text-lg font-bold hover:underline">${item.nama_resep}</a><br><span class="text-sm">${item.nama_daerah}</span>`;
+                    resultArea.appendChild(div);
+                });
+            });
+        }
+    });
+    </script>
+</body>
+</html>
